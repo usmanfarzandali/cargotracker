@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id="res_partner_commission_order_form_inherited" model="ir.ui.view">
+            <field name="name">res.partner.commission.form.inherited</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//form/sheet/notebook/page[1]" position="after">
+                    <page name="partner_commission" string="Commission Management">
+                        <field name="res_partner_commission_ids" widget="one2many_list" nolabel="1">
+                            <tree string="Commission" editable="bottom">
+                                <field name="province" />
+                           
+                                <field name="commission_type"/>
+                                <field name="commission_rate"/>
+                                
+                            </tree>
+                        </field>
+                </page>
+                
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

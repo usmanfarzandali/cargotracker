@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <record id="booking_main_commission_order_form_inherited" model="ir.ui.view">
+            <field name="name">booking.main.commission.form.inherited</field>
+            <field name="model">booking.main</field>
+            <field name="inherit_id" ref="cargo_tracker.shift_main_form"/>
+            <field name="arch" type="xml">
+                
+                <field name="sale_person_id"  position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </field> 
+                <xpath expr="//field[@name='sale_person_id']" position="after">
+                    <field name="has_commission"  />
+                    <field name="sales_person_id" options="{'no_create': True}" widget="many2onebutton" attrs="{'invisible': [('has_commission', '=', False)]}"/>
+                    <field name="commission_type" widget="selection" attrs="{'invisible': [('has_commission', '=', False)]}" />
+                    <field name="commission_rate" attrs="{'invisible': [('has_commission', '=', False)]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

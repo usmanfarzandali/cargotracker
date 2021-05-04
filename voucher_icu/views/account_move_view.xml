@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="account_move_icu_form" model="ir.ui.view">
+            <field name="name">account.move.icu.form</field>
+            <field name="model">account.move</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="acion_icu" string="ICU" type="object" class="oe_highlight"  groups="account.group_account_invoice"/>
+                </xpath>
+
+                <xpath expr="//button[@name='post']" position="attributes">
+                    <attribute name="states">draft,icu</attribute>
+                </xpath>
+
+            </field>
+             
+             
+            <!-- <xpath expr="//sheet[1]" position="after">
+                <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </xpath> -->
+        </record>
+
+        
+
+       
+
+
+  </data>
+</odoo>
+
+
+
+
+     
